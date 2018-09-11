@@ -1,0 +1,44 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Registrar Usuário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <h4>Criar uma nova conta</h4>
+            <hr />
+
+            <div class="text-danger" asp-validation-summary="All"></div>
+
+            <div class="form-group">
+                <lable asp-for="Email"></lable>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <lable asp-for="Password"></lable>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+           <div class="form-group">
+                <lable asp-for="ConfirmPassword"></lable>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+           </div>
+
+           <button class="btn btn-default" type="submit">Registrar</button>
+
+        </form>
+    </div>
+</div>            
+
+@section Scripts{ 
+    @await Html.PartialAsync("_validationScriptsPartial")
+}

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using identity.training.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace identity.training.Controllers
 {
@@ -15,6 +16,7 @@ namespace identity.training.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
